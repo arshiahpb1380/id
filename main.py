@@ -16,14 +16,14 @@ bot = telebot.TeleBot(config.token)
 def welcome(m):
     cid = m.chat.id
     markup = types.InlineKeyboardMarkup()
-    a = types.InlineKeyboardButton("Taylor Team \xE2\x9C\x8C", url="https://telegram.me/taylor_team")
+    a = types.InlineKeyboardButton("Creator \xE2\x9C\x8C", url="https://telegram.me/taylor_team")
     c = types.InlineKeyboardButton("Add group \xE2\x9C\x8C", url="https://telegram.me/ID_bot_robot?startgroup=test")
     markup.add(a, c)
     b = types.InlineKeyboardButton("Developer ID bot \xE2\x9C\x8C", url="https://telegram.me/negative_officiall")
     markup.add(b)
     nn = types.InlineKeyboardButton("Inline Mode", switch_inline_query='')
     markup.add(nn)
-    ret_msg = bot.send_message(cid, "Hello I'm ID bot \n\n Send : \n  /id or /me or /info   \n\n\n get your id : \n /idme (just pv) \nsend Your feedback : /feedback [msg]\n\n\n list inline mod : \ntype @ID_bot_robot\n\nBot version 3", disable_notification=True, reply_markup=markup)
+    ret_msg = bot.send_message(cid, "Hello I'm ID bot \n\n Send : \n  /id or /me or /info   \n\n\n get your id : \n /myid (just pv) \nsend Your feedback : /feedback [msg]\n\n\n list inline mod : \ntype @ID_bot_robot\n\nBot version 3", disable_notification=True, reply_markup=markup)
     assert ret_msg.message_id
 
 @bot.message_handler(commands=['id', 'ids', 'info', 'me'])
@@ -39,7 +39,7 @@ def id(m):      # info menu
     p = m.pinned_message
     fromm = m.forward_from
     markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton("\xF0\x9F\x98\x8A Taylor Team \xF0\x9F\x98\x8A", url="https://telegram.me/taylor_team"))
+    markup.add(types.InlineKeyboardButton("\xF0\x9F\x98\x8A Creator \xF0\x9F\x98\x8A", url="https://telegram.me/taylor_team"))
 #info text
     bot.send_chat_action(cid, "typing")
     bot.reply_to(m, "*ID from* : ```{}``` \n\n *Chat name* : ```{}``` \n\n\n *Your Username* : ```{}``` \n\n *Your First Name* : ```{}```\n\n *Your Last Name* : ```{}```\n\n *Type From* : ```{}``` \n\n *Msg data* : ```{}```\n\n *Your Msg* : ```{}```\n\n* pind msg * : ```{}```\n\n *from* : ```{}```".format(cid,title,usr,f,l,t,d,text,p,fromm), parse_mode="Markdown", reply_markup=markup)
@@ -51,7 +51,7 @@ def c(m):
     bot.send_contact(uid, phone_number="+98 937 909 7344", first_name="Negative")
 
 
-@bot.message_handler(commands=['about']) # copy right Taylor Team
+@bot.message_handler(commands=['about']) # copy right Creator
 def p(m):
     uid = m.chat.id
     markup = types.InlineKeyboardMarkup()
@@ -76,17 +76,17 @@ def p(m):
     markup.add(y)
     markup.add(ch, git)
     bot.send_chat_action(uid, 'typing')
-    bot.send_message(uid, "Taylor Team development Telegram bot and web mastering \n\n developers : \n [negative](https://telegram.me/negative_officiall) \n [Parham](https://telegram.me/UnFriendlly)", parse_mode="Markdown")
+    bot.send_message(uid, "Creator development Telegram bot and web mastering \n\n developers : \n [negative](https://telegram.me/negative_officiall) \n [Parham](https://telegram.me/UnFriendlly)", parse_mode="Markdown")
     bot.send_photo(uid, open('taylor.jpg'), caption="@Taylor_Team", reply_markup=markup)
 
 @bot.message_handler(commands=['idbot'])
 def handler(m):
     cid = m.chat.id
-    bot.send_message(cid, "My Name is ID bot \n creator and developer : [negative](https://telegram.me/negative_officiall) \n development channel : [Taylor Team](https://telegram.me/taylor_team)\n\n [github](https://github.com/taylor-team/id-bot)", parse_mode="Markdown")
+    bot.send_message(cid, "My Name is ID bot \n creator and developer : [negative](https://telegram.me/negative_officiall) \n development channel : [Creator](https://telegram.me/taylor_team)\n\n [github](https://github.com/taylor-team/id-bot)", parse_mode="Markdown")
     bot.send_chat_action(cid, "upload_photo")
     bot.send_photo(cid, open('slackbot-story1-582x436.jpg'), caption="@ID_bot_robot  \xF0\x9F\x98\x9C")
 
-@bot.message_handler(commands=['idme'])
+@bot.message_handler(commands=['myid'])
 def test_handler(m):
     cid = m.from_user.id
     fl = m.from_user.first_name
@@ -100,7 +100,7 @@ def feedback(m):
     usr = m.from_user.username
     str = m.text
     txt = str.replace('/feedback', '')
-    bot.send_message(senderid, "_Thank Your Msg Posted admin_", parse_mode="Markdown")
+    bot.send_message(senderid, "_Thank Your Msg has been forwarded to admin._", parse_mode="Markdown")
     bot.send_message(config.is_sudo, "msg : {}\nid : {}\nname : {}\nUsername : @{}".format(txt,senderid,first,usr))
 
 
@@ -182,5 +182,5 @@ bot.polling(True)
 #  | | (_| | |_| | | (_) | |      | |  __/ (_| | | | | | |
 #  |_|\__,_|\__, |_|\___/|_|      |_|\___|\__,_|_| |_| |_|
 #           |___/
-#Copy right  2016 Negative - Taylor Team
+#Copy right  2016 Negative - Creator
 #MIT license
