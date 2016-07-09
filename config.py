@@ -1,6 +1,6 @@
 
-token = 'Your Token' # Add Your Token
-is_sudo = 'ID Admin' # add Your ID
+token = '220415891:AAEQJk6BhcpoKSPLCS637mwgZGOQkqywpDs' # Add Your Token
+is_sudo = '46853604' # add Your ID
 
 
 
